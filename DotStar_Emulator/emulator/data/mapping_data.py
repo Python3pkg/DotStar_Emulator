@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 from DotStar_Emulator.emulator import config
 from DotStar_Emulator.emulator.vector2 import Vector2
@@ -149,14 +149,14 @@ class MappingData(object):
 
         index = 0
         if not cardinal:
-            r_y = range(int(self.grid_size.y))
+            r_y = list(range(int(self.grid_size.y)))
         else:
-            r_y = range(int(self.grid_size.y)-1, -1, -1)
+            r_y = list(range(int(self.grid_size.y)-1, -1, -1))
         for y in r_y:
             if left_to_right:
-                r_x = range(int(self.grid_size.x))
+                r_x = list(range(int(self.grid_size.x)))
             else:
-                r_x = range(int(self.grid_size.x)-1, -1, -1)
+                r_x = list(range(int(self.grid_size.x)-1, -1, -1))
             for x in r_x:
                 self.data[x][y] = index
                 index += 1
@@ -186,14 +186,14 @@ class MappingData(object):
 
         index = 0
         if left_to_right:
-            r_x = range(int(self.grid_size.x))
+            r_x = list(range(int(self.grid_size.x)))
         else:
-            r_x = range(int(self.grid_size.x)-1, -1, -1)
+            r_x = list(range(int(self.grid_size.x)-1, -1, -1))
         for x in r_x:
             if not cardinal:
-                r_y = range(int(self.grid_size.y))
+                r_y = list(range(int(self.grid_size.y)))
             else:
-                r_y = range(int(self.grid_size.y)-1, -1, -1)
+                r_y = list(range(int(self.grid_size.y)-1, -1, -1))
             for y in r_y:
                 self.data[x][y] = index
                 index += 1
@@ -223,9 +223,9 @@ class MappingData(object):
 
         index = 0
         if left_to_right:
-            r_x = range(int(self.grid_size.x))
+            r_x = list(range(int(self.grid_size.x)))
         else:
-            r_x = range(int(self.grid_size.x)-1, -1, -1)
+            r_x = list(range(int(self.grid_size.x)-1, -1, -1))
         for x_i, x in enumerate(r_x):
 
             zig = False
@@ -238,9 +238,9 @@ class MappingData(object):
                     zig = True
 
             if zig:
-                r_y = range(int(self.grid_size.y)-1, -1, -1)
+                r_y = list(range(int(self.grid_size.y)-1, -1, -1))
             else:
-                r_y = range(int(self.grid_size.y))
+                r_y = list(range(int(self.grid_size.y)))
 
             for y in r_y:
                 self.data[x][y] = index
@@ -271,9 +271,9 @@ class MappingData(object):
 
         index = 0
         if not cardinal:
-            r_y = range(int(self.grid_size.y))
+            r_y = list(range(int(self.grid_size.y)))
         else:
-            r_y = range(int(self.grid_size.y)-1, -1, -1)
+            r_y = list(range(int(self.grid_size.y)-1, -1, -1))
         for y_i, y in enumerate(r_y):
 
             zig = False
@@ -286,9 +286,9 @@ class MappingData(object):
                     zig = True
 
             if zig:
-                r_x = range(int(self.grid_size.x)-1, -1, -1)
+                r_x = list(range(int(self.grid_size.x)-1, -1, -1))
             else:
-                r_x = range(int(self.grid_size.x))
+                r_x = list(range(int(self.grid_size.x)))
 
             for x in r_x:
                 self.data[x][y] = index

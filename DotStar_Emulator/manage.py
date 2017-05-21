@@ -80,11 +80,11 @@ def init(arguments):
         source_file = os.path.join(source_folder, filename)
         dest_file = os.path.join(dest_folder, filename)
         if arguments.force is False and os.path.isfile(dest_file):
-            print("Error, file already exists in current folder filename: '{}' use --force to overwrite files.".format(
-                filename))
+            print(("Error, file already exists in current folder filename: '{}' use --force to overwrite files.".format(
+                filename)))
         else:
             shutil.copy(source_file, dest_file)
-            print("Copying filename: '{}'".format(filename))
+            print(("Copying filename: '{}'".format(filename)))
 
 
 def manage():

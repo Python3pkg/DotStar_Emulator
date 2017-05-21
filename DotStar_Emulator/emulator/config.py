@@ -183,7 +183,7 @@ def read_configuration():
             e.strerror = 'Unable to load configuration file (%s)' % e.strerror
             raise
 
-        for key, value in d.__dict__.items():
+        for key, value in list(d.__dict__.items()):
             if key.isupper():
                 set(key, value)
         return True

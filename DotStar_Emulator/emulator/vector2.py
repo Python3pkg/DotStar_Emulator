@@ -52,7 +52,7 @@ class Vec2d(object):
         else:
             return True
 
-    def __nonzero__(self):
+    def __bool__(self):
         return bool(self.x or self.y)
 
     # Generic operator handlers

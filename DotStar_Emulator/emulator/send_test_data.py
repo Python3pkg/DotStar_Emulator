@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 from multiprocessing.connection import Client
 import random
 import os
@@ -40,12 +40,12 @@ class App(object):
         else:
             self.repeat_mode = "loop"
             if self.args.loop:
-                self.range = range(int(args.loop))
+                self.range = list(range(int(args.loop)))
                 print("Repeat Mode: Loop")
                 print("Loops Count:", args.loop)
             else:
                 print("Repeat Mode: None, send once")
-                self.range = range(1)
+                self.range = list(range(1))
 
     def set(self, index, c, b, g, r):
         if index is not None and index < self.pixel_count:
@@ -77,11 +77,11 @@ class App(object):
     def send(self):
 
         if not self.connection:
-            if os.environ.has_key('DOTSTAR_HOST'):
+            if 'DOTSTAR_HOST' in os.environ:
                 host = os.environ.get('DOTSTAR_HOST')
             else:
                 host = config.get("HOST")
-            if os.environ.has_key('DOTSTAR_PORT'):
+            if 'DOTSTAR_PORT' in os.environ:
                 port = os.environ.get('DOTSTAR_PORT')
             else:
                 port = config.get("PORT")
